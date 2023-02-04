@@ -1,0 +1,31 @@
+baseURL = 'https://0xph03n1x.github.io/'
+languageCode = 'en-us'
+title = "0xph03n1x's Blog"
+theme = "m10c"
+
+[params]
+    author = "0xph03n1x"
+    description = "All things tech and security."
+    favicon = "/favicon.ico"
+    avatar = "/img/skull_cap.png"
+    menu_item_separator = " - "
+    [[params.social]]
+        icon = "github"
+        name = "Github"
+        url = "https://github.com/0xph03n1x"
+    
+    [[params.social]]
+        icon = "twitter"
+        name = "Twitter"
+        url = "https://twitter.com/pho3n1x86"
+[menu]
+    [[menu.main]]
+        identifier = "home"
+        name = "Home"
+        url = "/"
+        weight = 1
+    [[menu.main]]
+        identifier = "About"
+        name = "About"
+        url = "/about/"
+        weight = 2
