@@ -22,8 +22,8 @@ theme = "m10c"
 
 [menu]
     [[menu.main]]
-        identifier = "home"
-        name = "Home"
+        identifier = "blog"
+        name = "Blog"
         url = "/"
         weight = 1
     [[menu.main]]
