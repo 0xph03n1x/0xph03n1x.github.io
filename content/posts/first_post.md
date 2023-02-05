@@ -52,4 +52,12 @@ Morbi laoreet enim id sem euismod lobortis. Donec quam libero, bibendum non curs
 
 ![Test Image](/img/image_test.png)
 
+*Italic text asd aonsdmkaksldm*
+
+**Bold textasoijdadoasjdm ka**
+
+Like references - [Twitter acc](https://twitter.com/pho3n1x86)
+
+
+
 [^1]: I am the footnote
