@@ -31,8 +31,3 @@ theme = "m10c"
         name = "About"
         url = "/about/"
         weight = 2
-    [[menu.main]]
-        identifier = "archive"
-        name = "Archive"
-        url = "/archive/"
-        weight = 3
