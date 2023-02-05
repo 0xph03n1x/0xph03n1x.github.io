@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "About"
 date: 2023-02-04T21:34:12+01:00
 draft: false 
 ---
@@ -17,4 +17,8 @@ My interest primarily revolve around the cybersecurity space, some examples incl
 
 I also like to participate in the occasional CTF or try my luck against a HTB machine.
 
-Other hobbies | interests include philosophy, psychology, fiddling around with stuff and knowing how random things work.
+Other interests include philosophy, psychology, fiddling around with stuff and knowing how random things work.
+
+# ~$ hobbis
+
+Other hobbies include playing video games like Path of Exile and World of Warcraft.
