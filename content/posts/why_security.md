@@ -1,7 +1,7 @@
 ---
 title: "Why I Chose Cybersecurity vs Networking"
 date: 2023-02-05T17:10:48+01:00
-draft: true
+draft: false
 ---
 
 **Exclaimer - the following are just my opinions/experiences and how I saw the two fields at the time I made my decisions.**
