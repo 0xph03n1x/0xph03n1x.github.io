@@ -19,6 +19,6 @@ I also like to participate in the occasional CTF or try my luck against a HTB ma
 
 Other interests include philosophy, psychology, fiddling around with stuff and knowing how random things work.
 
-# ~$ hobbis
+# ~$ hobbies
 
 Other hobbies include playing video games like Path of Exile and World of Warcraft.
