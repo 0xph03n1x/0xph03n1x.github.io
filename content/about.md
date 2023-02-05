@@ -5,7 +5,7 @@ draft: false
 ---
 # ~$ whoami
 
-I'm a 25 year old guy. I've worked in the IT sector for more than 6 years and counting.
+I'm a 25 year old guy from Easter Europe. I've worked in the IT sector for more than 6 years and counting.
 
 
 # ~$ experience
