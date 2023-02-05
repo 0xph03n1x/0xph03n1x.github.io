@@ -19,11 +19,6 @@ theme = "m10c"
         icon = "twitter"
         name = "Twitter"
         url = "https://twitter.com/pho3n1x86"
-    
-    [[params.social]]
-        icon = "mastodon"
-        name = "Mastodon"
-        url = "https://infosec.exchange/@0xph03n1x"
 
 [menu]
     [[menu.main]]
