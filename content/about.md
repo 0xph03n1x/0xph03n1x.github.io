@@ -15,17 +15,17 @@ My experience includes technical support, netsec and at present I work as a secu
 
 # ~$ certs
 
-eLearnSecurity Certified Threat Hunting Professional (eCTHPv2)
+**eLearnSecurity Certified Threat Hunting Professional (eCTHPv2)**
 
-eLearnSecurity Juniour Penetration Tester (eJPT)
+**eLearnSecurity Juniour Penetration Tester (eJPT)**
 
-AWS Certified Solutions Architect - Associate (SAA-C03)
+**AWS Certified Solutions Architect - Associate (SAA-C03)**
 
-AWS Cloud Practitioner (CLF-C01)
+**AWS Cloud Practitioner (CLF-C01)**
 
-CompTIA Security+ (SY0-601)
+**CompTIA Security+ (SY0-601)**
 
-Palo Alto Networks Certified Security Administrator (PCNSA)
+**Palo Alto Networks Certified Security Administrator (PCNSA)**
 
 (more to come !!!)
 
