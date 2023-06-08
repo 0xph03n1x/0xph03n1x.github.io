@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 0xph03n1x&#39;s Blog</title>
+    <link>https://0xph03n1x.github.io/posts/</link>
+    <description>Recent content in Posts on 0xph03n1x&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Feb 2023 17:10:48 +0100</lastBuildDate><atom:link href="https://0xph03n1x.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why I Chose Cybersecurity vs Networking</title>
+      <link>https://0xph03n1x.github.io/posts/why_security/</link>
+      <pubDate>Sun, 05 Feb 2023 17:10:48 +0100</pubDate>
+      
+      <guid>https://0xph03n1x.github.io/posts/why_security/</guid>
+      <description>Exclaimer - the following are just my opinions/experiences and how I saw the two fields at the time I made my decisions.
+How I got into networking Right after high school, same as a lot of other people my age I imagine, I didn&amp;rsquo;t really know what to do with my life. Going to university didn&amp;rsquo;t really seem like a viable option, as getting a bachelor&amp;rsquo;s degree (even though it was probably going to be in a technical specialty) looked to me like a great way to waste 4 years of my life.</description>
+    </item>
+    
+  </channel>
+</rss>
