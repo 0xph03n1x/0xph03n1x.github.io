@@ -1,6 +1,6 @@
 ---
 title: "Review of INE courses | eLearnSecurity Certifications"
-date: 2023-02-04T18:56:21+01:00
+date: 2023-06-30T18:56:21+01:00
 draft: false
 ---
 # Intro
