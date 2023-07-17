@@ -52,11 +52,12 @@ I would definitely recommend this for blue teamers to get another perspective on
 
 ## Course
 The course material, although a bit dated, was extremely educational and walks you over all the details. It even has an assembly crash course, which is good to get you up to speed for the static portion of your analysis.
-It also covers in good detail how to use a debugger (x32/x64 debugger) and how to do a collect information with different tools for the dynamic analysis portion.
+It also covers in good detail how to use a debugger (x32/x64 debugger) and how to collect information with different tools for the dynamic analysis portion.
 
 ## Certification
 This was probably my most enjoyable certification exam from eLearnSecurit/INE. I learned quite a lot during the exam itself, especially for the anti-analysis techniques used by malware developer and how to bypass them.
-As of writing this article, I'm still awaiting the results from my exam.
+~~As of writing this article, I'm still awaiting the results from my exam.~~
+Got my passing mark last! Would definitely recommend the exam for anyone interested in malware analysis - the only problem is INE has decided to sunset the exam and learning path, which is sad to see.
 
 # eCRE
 
@@ -65,6 +66,13 @@ I'm going over the course right now and so far like it quite a lot. It's clear t
 
 ## Certification
 I'll likely attempt the exam in the next month or two and will update the article once done.
+
+
+# eWPT
+
+## Course
+
+## Certification
 
 
 # Conclusion
