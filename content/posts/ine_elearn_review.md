@@ -56,7 +56,7 @@ It also covers in good detail how to use a debugger (x32/x64 debugger) and how t
 
 ## Certification
 This was probably my most enjoyable certification exam from eLearnSecurit/INE. I learned quite a lot during the exam itself, especially for the anti-analysis techniques used by malware developer and how to bypass them.
-~~As of writing this article, I'm still awaiting the results from my exam.~~
+~~As of writing this article, I'm still awaiting the results from my exam.~~  
 Got my passing mark last! Would definitely recommend the exam for anyone interested in malware analysis - the only problem is INE has decided to sunset the exam and learning path, which is sad to see.
 
 # eCRE
