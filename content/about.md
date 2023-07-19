@@ -5,7 +5,7 @@ draft: false
 ---
 # ~$ whoami
 
-I'm a cybersecurity professional from Easter Europe. I've worked in the IT and Cybersecurity sector for more than 6 year.
+I'm a cybersecurity professional from Easter Europe. I've worked in the IT and Cybersecurity fields for more than 6 year.
 
 
 # ~$ experience
@@ -15,7 +15,7 @@ My experience includes technical support, network security engineering and at pr
 
 # ~$ interests
 
-My interest primarily revolve around the cybersecurity space, some examples include - threat intelligence, security research, malware analysis, reverse engineering, programming (C/C++, Python).
+My interest primarily revolves around the cybersecurity space, some examples include - threat intelligence, security research, malware analysis, reverse engineering, programming (C/C++, Python).
 
 I also like to participate in CTFs or do the occasional HTB machine.
 
@@ -29,6 +29,7 @@ Other hobbies include playing video games like Path of Exile and World of Warcra
 
 # ~$ certs
 
+**eLearnSecurity Certified Malware Analysis Professional (eCMAP)**  
 **eLearnSecurity Certified Professional Penetration Tester (eCPTTv2)**  
 **eLearnSecurity Certified Threat Hunting Professional (eCTHPv2)**  
 **eLearnSecurity Juniour Penetration Tester (eJPT)**  
