@@ -37,7 +37,6 @@ Other hobbies include playing video games like Path of Exile and World of Warcra
 **AWS Cloud Practitioner (CLF-C01)**  
 **CompTIA Security+ (SY0-601)**  
 **Palo Alto Networks Certified Security Administrator (PCNSA)**  
-**Splunk 7.x Fundamentals**  
 
 (more to come !!!)
 
