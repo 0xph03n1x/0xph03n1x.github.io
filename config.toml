@@ -19,6 +19,14 @@ theme = "m10c"
         icon = "twitter"
         name = "Twitter"
         url = "https://twitter.com/pho3n1x86"
+    [[params.social]]
+        icon = "box"
+        name = "Hack the Box"
+        url = "https://app.hackthebox.com/profile/161190"
+    [[params.social]]
+        icon = "cloud"
+        name = "TryHackMe"
+        url = "https://tryhackme.com/p/RemyX"
 
 [menu]
     [[menu.main]]
