@@ -9,6 +9,8 @@ I have been going through a lot of the INE/eLS courses and exams over the past y
 
 # eJPT
 
+![eJPT](/img/ine_certs/ejpt_cert.png)
+
 ## Course
 
 The eLearnSecurity Junior Penetration Tester was my first practical exam and my introduction to the world of practical exams.
@@ -24,6 +26,8 @@ I would definitely recommend the course and exam in the form and price they had 
 
 # eCTHP
 
+![eCTHPv2](/img/ine_certs/ecthp_cert.png)
+
 ## Course
 This was my first "serious" exam, so I decided to go through the course material twice. A lot of the knowledge from slides and vidoes was extremely useful, not just for the exam, but for my day job too.
 Better understanding why and how the Cyber Kill Chain was used, getting deeper knowledge of Windows and its processes, understanding the Pyramid of Pain and better comprehending the MTRE ATT&CK TTPs and how to hunt for them was great.
@@ -37,6 +41,8 @@ The only downside was the wait time to have my report reviewed - it took about 2
 
 # eCPPT
 
+![eCPPT](/img/ine_certs/ecppt_cert.png)
+
 ## Course
 I liked the course material, but wasn't very fond of the course structure - it begins with the "System Security" chapter, which should cover the Buffer Overflow information, but it just felt lacking to me. Instead I had to look for additional resources on the BoF exploitation. The rest of the course material was okay, although a bit outdated at this points.
 A lot of the resources are linked in the #ptp-resources channel inside the ["Unofficial INE/eLS"](https://discord.com/invite/XGVaBeapXQ) discord server.
@@ -49,6 +55,8 @@ Overall the experience with the course and exam was very positive, my only gripe
 I would definitely recommend this for blue teamers to get another perspective on things and some hands-on experience.
 
 # eCMAP
+
+![eCMAP](/img/ine_certs/ecmap_cert.png)
 
 ## Course
 The course material, although a bit dated, was extremely educational and walks you over all the details. It even has an assembly crash course, which is good to get you up to speed for the static portion of your analysis.
