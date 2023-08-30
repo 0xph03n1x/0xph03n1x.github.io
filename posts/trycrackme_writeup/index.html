@@ -1,0 +1,472 @@
+<!doctype html><html lang=en-us><head><title>Writeups for the whitebox challenges on trycrack.me // 0xph03n1x's Blog</title><link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.117.0"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="0xph03n1x"><meta name=description content><link rel=stylesheet href=/css/main.min.ee6c98bcd57c0aa4c0ec4fef185f6f6e90eabc62ac3f5673a1fbd398d446ef9e.css><meta name=twitter:card content="summary"><meta name=twitter:title content="Writeups for the whitebox challenges on trycrack.me"><meta name=twitter:description content="Huge thanks to the creator of trycrack.me - T A J R for providing an interesting platform for whitebox and blackbox crackmes.
+&ldquo;Start here&rdquo; Challenge code:
+your_input = &#34;&#34; if your_input == &#34;Hello_World&#34;: print(&#34;Good Job!&#34;) else: print(&#34;Wrong Password&#34;) Solution:
+The goal here is for the your_input variable to match the string it&rsquo;s being compared to, which is in clear text and not obfuscated. Simply entering Hello_World will solve this challenge."><meta property="og:title" content="Writeups for the whitebox challenges on trycrack.me"><meta property="og:description" content="Huge thanks to the creator of trycrack.me - T A J R for providing an interesting platform for whitebox and blackbox crackmes.
+&ldquo;Start here&rdquo; Challenge code:
+your_input = &#34;&#34; if your_input == &#34;Hello_World&#34;: print(&#34;Good Job!&#34;) else: print(&#34;Wrong Password&#34;) Solution:
+The goal here is for the your_input variable to match the string it&rsquo;s being compared to, which is in clear text and not obfuscated. Simply entering Hello_World will solve this challenge."><meta property="og:type" content="article"><meta property="og:url" content="https://0xph03n1x.github.io/posts/trycrackme_writeup/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-08-30T00:00:00+00:00"><meta property="article:modified_time" content="2023-08-30T00:00:00+00:00"></head><body><header class=app-header><a href=https://0xph03n1x.github.io/><img class=app-header-avatar src=/img/skull_cap.png alt=0xph03n1x></a>
+<span class=app-header-title>0xph03n1x's Blog</span><nav class=app-header-menu><a class=app-header-menu-item href=/>Blog</a>
+-
+<a class=app-header-menu-item href=/about/>About</a></nav><p>All things tech and security.</p><div class=app-header-social><a href=https://github.com/0xph03n1x target=_blank rel="noreferrer noopener me"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>Github</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77 5.44 5.44.0 003.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a><a href=https://twitter.com/pho3n1x86 target=_blank rel="noreferrer noopener me"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter"><title>Twitter</title><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></a><a href=https://app.hackthebox.com/profile/161190 target=_blank rel="noreferrer noopener me"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-box"><title>Hack the Box</title><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></a><a href=https://tryhackme.com/p/RemyX target=_blank rel="noreferrer noopener me"><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-cloud"><title>TryHackMe</title><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>Writeups for the whitebox challenges on trycrack.me</h1><div class=post-meta><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Aug 30, 2023</div><div><svg viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>11 min read</div></div></header><div class=post-content><p>Huge thanks to the creator of <a href=https://trycrack.me>trycrack.me</a> - <a href=https://twitter.com/xtajr>T A J R</a> for providing an interesting platform for whitebox and blackbox crackmes.</p><h1 id=start-here>&ldquo;Start here&rdquo;</h1><p>Challenge code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>your_input <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> your_input <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;Hello_World&#34;</span>:
+</span></span><span style=display:flex><span>	print(<span style=color:#e6db74>&#34;Good Job!&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>	print(<span style=color:#e6db74>&#34;Wrong Password&#34;</span>)
+</span></span></code></pre></div><p>Solution:</p><p>The goal here is for the <code>your_input</code> variable to match the string it&rsquo;s being compared to, which is in clear text and not obfuscated.
+Simply entering <code>Hello_World</code> will solve this challenge.</p><h1 id=pycimal>&ldquo;Pycimal&rdquo;</h1><p>Challenge code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>your_input <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>password <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>intPass <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;83,117,112,101,114,83,101,99,117,114,</span><span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span><span style=color:#e6db74>101,80,97,115,115,119,111,114,100,87,104,105,99,</span><span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span><span style=color:#e6db74>104,67,97,110,116,66,101,67,114,97,99,107,101,100,</span><span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span><span style=color:#e6db74>87,105,116,104,111,117,116,66,108,97,99,107,109,97,</span><span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span><span style=color:#e6db74>103,105,99&#34;</span>
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span>intPass <span style=color:#f92672>=</span> intPass<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34;,&#34;</span>)
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> c <span style=color:#f92672>in</span> intPass:
+</span></span><span style=display:flex><span>    password <span style=color:#f92672>=</span> password <span style=color:#f92672>+</span> chr(int(c))
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> your_input <span style=color:#f92672>==</span> password:
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;Good job!&#34;</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>&#34;Wrong password&#34;</span>)
+</span></span></code></pre></div><p>Solution:</p><p>This time the password is stored as a string that contains decimal number split by &ldquo;,&rdquo; and then each number gets number converted from string to integer, and passed to the <a href=https://docs.python.org/3/library/functions.html#chr>chr()</a> function.
+The <a href=https://docs.python.org/3/library/functions.html#chr>chr()</a> function will convert the int to a character, which is stored in the <code>password</code> string, that our input will be compared to.
+Following script will provide the solution.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>password <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>intPass <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;83,117,112,101,114,83,101,99,117,114,</span><span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span><span style=color:#e6db74>101,80,97,115,115,119,111,114,100,87,104,105,99,</span><span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span><span style=color:#e6db74>104,67,97,110,116,66,101,67,114,97,99,107,101,100,</span><span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span><span style=color:#e6db74>87,105,116,104,111,117,116,66,108,97,99,107,109,97,</span><span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span><span style=color:#e6db74>103,105,99&#34;</span>
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span>intPass <span style=color:#f92672>=</span> intPass<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34;,&#34;</span>)
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> c <span style=color:#f92672>in</span> intPass:
+</span></span><span style=display:flex><span>    password <span style=color:#f92672>=</span> password <span style=color:#f92672>+</span> chr(int(c))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(password)
+</span></span></code></pre></div><h1 id=easysharp>&ldquo;EasySharp&rdquo;</h1><p>Challenge code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cs data-lang=cs><span style=display:flex><span><span style=color:#66d9ef>string</span> your_input = <span style=color:#e6db74>&#34;&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>char</span>[] array = your_input.ToCharArray();
+</span></span><span style=display:flex><span><span style=color:#66d9ef>string</span>[] array2 = <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>string</span>[array.Length];
+</span></span><span style=display:flex><span><span style=color:#66d9ef>string</span> enc = <span style=color:#e6db74>&#34;&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>string</span> correct = <span style=color:#e6db74>&#34;144260662546426066&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i = <span style=color:#ae81ff>0</span>; i &lt; your_input.Length; i++)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    array2[i] = Convert.ToString((<span style=color:#66d9ef>int</span>)array[i] - <span style=color:#ae81ff>55</span>);
+</span></span><span style=display:flex><span>    enc += array2[i];
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (enc == correct)
+</span></span><span style=display:flex><span>    Console.WriteLine(<span style=color:#e6db74>&#34;Good job!&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>    Console.WriteLine(<span style=color:#e6db74>&#34;Wrong Answer!&#34;</span>)
+</span></span></code></pre></div><p>Soluiton:
+Another encoded flag, this time the encoded string, for every character in the input, <code>55</code> is being removed before the final check.
+Given the final result, we can reverse the operation, adding <code>55</code> to each number and get the correct input.
+The following script gets us the flag.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>flag <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;144260662546426066&#34;</span>
+</span></span><span style=display:flex><span>solved <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># split the string on every second character</span>
+</span></span><span style=display:flex><span>flag_list <span style=color:#f92672>=</span> [flag[i:i<span style=color:#f92672>+</span><span style=color:#ae81ff>2</span>] <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>0</span>, len(flag), <span style=color:#ae81ff>2</span>)]
+</span></span><span style=display:flex><span><span style=color:#75715e># for every item in the list, convert it from string to int, add 55, pass to chr() and concatanate to the `solved` string</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> flag_list:
+</span></span><span style=display:flex><span>    solved <span style=color:#f92672>+=</span> chr(int(i) <span style=color:#f92672>+</span> <span style=color:#ae81ff>55</span>)
+</span></span><span style=display:flex><span>print(solved)
+</span></span></code></pre></div><h1 id=replace>&ldquo;Replace&rdquo;</h1><p>Challenge code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-php data-lang=php><span style=display:flex><span>$your_input <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$txt <span style=color:#f92672>=</span> <span style=color:#a6e22e>str_replace</span>(<span style=color:#e6db74>&#34;op&#34;</span>,<span style=color:#e6db74>&#34;&#34;</span>,$your_input);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span>($txt <span style=color:#f92672>===</span> <span style=color:#e6db74>&#34;reprop&#34;</span>)
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>echo</span> (<span style=color:#e6db74>&#34;Good job!&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>echo</span> (<span style=color:#e6db74>&#34;Wrong Answer!&#34;</span>);
+</span></span></code></pre></div><p>Solution:</p><p>The challenge code looks for the <code>op</code> string in the user input and replaces it with nothing. It then checks if the resulting string matches <code>reprop</code>.
+To get the flag here, since the <code>str_replace</code> function is only called once, we need to modify the input to include <code>op</code> between the <code>o</code> and <code>p</code>, which gives the solve.</p><h1 id=out-of-the-box>&ldquo;Out of the box&rdquo;</h1><p>Challenge code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> pwn 
+</span></span><span style=display:flex><span>password<span style=color:#f92672>=</span> bytes<span style=color:#f92672>.</span>fromhex(<span style=color:#e6db74>&#34;3a2a2e1e3659113a5f1a3c335d1b1a3a2d590d031b5b064413&#34;</span>)
+</span></span><span style=display:flex><span>your_input <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;****&#34;</span> <span style=color:#75715e># hint: (4 characters)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>enc_password <span style=color:#f92672>=</span> pwn<span style=color:#f92672>.</span>xor(password, your_input)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#34;TCM{X0r_1s&#34;</span> <span style=color:#f92672>in</span> str(enc_password):
+</span></span><span style=display:flex><span>  print(<span style=color:#e6db74>&#34;Good Job!&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>  print(<span style=color:#e6db74>&#34;Wrong password&#34;</span>)
+</span></span></code></pre></div><p>Solution:
+The flag is a string of hex numbers that gets converted to a <code>bytes</code> object, that is then xor&rsquo;ed with the supplied input. The resulting string is being checked for the existence of <code>TCM{X0r_1s</code> string inside of the results.
+While there might be a more elegant solution I decided to create a small bruteforce setup (since we have a hint that the input is 4 characters) using the <code>pwn</code> and <code>itertools</code> python modules.
+The following code will iterate over all possible 4-character long combinations, upon failure of the <code>if</code> check, will continue and if the correct input is found it will be printed along with the resulting flag.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> pwn
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> itertools
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> string
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>password<span style=color:#f92672>=</span> bytes<span style=color:#f92672>.</span>fromhex(<span style=color:#e6db74>&#34;3a2a2e1e3659113a5f1a3c335d1b1a3a2d590d031b5b064413&#34;</span>)
+</span></span><span style=display:flex><span>your_input <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;****&#34;</span> <span style=color:#75715e># hint: (4 characters)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>data_set_1 <span style=color:#f92672>=</span> list(string<span style=color:#f92672>.</span>ascii_lowercase)
+</span></span><span style=display:flex><span>data_set_2 <span style=color:#f92672>=</span> list(string<span style=color:#f92672>.</span>ascii_lowercase)
+</span></span><span style=display:flex><span>data_set_3 <span style=color:#f92672>=</span> list(string<span style=color:#f92672>.</span>ascii_lowercase)
+</span></span><span style=display:flex><span>data_set_4 <span style=color:#f92672>=</span> list(string<span style=color:#f92672>.</span>ascii_lowercase)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> permutation <span style=color:#f92672>in</span> itertools<span style=color:#f92672>.</span>product(data_set_1, data_set_2, data_set_3, data_set_4):
+</span></span><span style=display:flex><span>    <span style=color:#75715e>#print(permutation)</span>
+</span></span><span style=display:flex><span>    your_input <span style=color:#f92672>=</span> permutation
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    enc_password <span style=color:#f92672>=</span> pwn<span style=color:#f92672>.</span>xor(password, your_input)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#34;TCM{X0r_1s&#34;</span> <span style=color:#f92672>in</span> str(enc_password):
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;The correct input is: </span><span style=color:#e6db74>{</span>your_input<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>        print(str(enc_password))
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;Good Job!&#34;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>continue</span>
+</span></span></code></pre></div><h1 id=old-cipher>&ldquo;Old cipher&rdquo;</h1><p>Challenge code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>char</span> your_input[<span style=color:#ae81ff>7</span>];
+</span></span><span style=display:flex><span><span style=color:#a6e22e>scanf</span>(<span style=color:#e6db74>&#34;%s&#34;</span>,your_input);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>char</span><span style=color:#f92672>*</span> correct <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;cr4ckme&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> ; i <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>strlen</span>(correct) ; i<span style=color:#f92672>++</span>)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (correct[i] <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>!=</span> your_input[i]) {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Wrong Answer&#34;</span>);
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Good Job!&#34;</span>);
+</span></span></code></pre></div><p>Solution:
+The challenge uses a clear-text flag and iterates the characters in the input alongside the flag to check if the characters at the same position are equal to the character of <code>correct</code> minus one, i.e. the previous letter in the alphabet. For <code>c</code> that would be the letter <code>b</code> and so on.
+Since C can treat a <code>char</code> as an integer a simple <code>-1</code> reverts to the character to the previous one.
+The following code provide the complete solution, but this could also be done by hand.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>flag <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;cr4ckme&#34;</span>
+</span></span><span style=display:flex><span>solution <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> c <span style=color:#f92672>in</span> flag:
+</span></span><span style=display:flex><span>    solution <span style=color:#f92672>+=</span> chr(ord(c) <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(solution)
+</span></span></code></pre></div><h1 id=do-the-math>&ldquo;Do The Math&rdquo;</h1><p>Challenge code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>your_input <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>password <span style=color:#f92672>=</span> list(bytes(your_input,encoding<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;utf-8&#39;</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>check <span style=color:#f92672>=</span> (password[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>29</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>39</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>33</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>)\
+</span></span><span style=display:flex><span>	<span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>105</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>4</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>47</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>5</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>39</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>)\
+</span></span><span style=display:flex><span>	<span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>6</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>34</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>7</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>105</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>8</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>34</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>)\
+</span></span><span style=display:flex><span>	<span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>9</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>46</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>10</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>49</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>11</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>105</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>)\
+</span></span><span style=display:flex><span>	<span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>12</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>31</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>13</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>36</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>14</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>45</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>)\
+</span></span><span style=display:flex><span>	<span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>15</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>34</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>16</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>49</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>17</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>105</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>)\
+</span></span><span style=display:flex><span>	<span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>18</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>53</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>19</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>40</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>20</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>35</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>)\
+</span></span><span style=display:flex><span>	<span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>21</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>31</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>22</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>49</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>) <span style=color:#f92672>and</span> (password[<span style=color:#ae81ff>23</span>] <span style=color:#f92672>+</span> <span style=color:#ae81ff>36</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>150</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (check <span style=color:#f92672>==</span> <span style=color:#66d9ef>True</span>):
+</span></span><span style=display:flex><span>	print(<span style=color:#e6db74>&#34;Good Job!&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>	print(<span style=color:#e6db74>&#34;Wrong Password&#34;</span>)
+</span></span></code></pre></div><p>Solution:</p><p>The input get converted from utf-8 encoded string -> bytes -> list. Each element of the list has a seemingly random number added and is compared to a specific number.
+Using some multi-line editing in your editor of choice you can extract the final and added value to get the original value.
+There are two ways I found this challenge can be solved in python. The first one is create an empty list, fill it with <code>None</code> and then use the value for each index.
+Alternatively use a list and appent at the character after subtracting. This only works since the check are done for each element in sequence.
+The code below uses this method.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>password <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>29</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>39</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>33</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>105</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>47</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>39</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>34</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>105</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>34</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>46</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>49</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>105</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>31</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>36</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>45</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>34</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>49</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>105</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>53</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>40</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>35</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>31</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>49</span>))
+</span></span><span style=display:flex><span>password<span style=color:#f92672>.</span>append(chr(<span style=color:#ae81ff>150</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>36</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>join(password))
+</span></span></code></pre></div><h1 id=xor-magic>&ldquo;XOR magic&rdquo;</h1><p>Challenge code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>your_input <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>arr <span style=color:#f92672>=</span> [<span style=color:#ae81ff>23</span>,<span style=color:#ae81ff>49</span>,<span style=color:#ae81ff>58</span>,<span style=color:#ae81ff>27</span>,<span style=color:#ae81ff>44</span>,<span style=color:#ae81ff>49</span>,<span style=color:#ae81ff>14</span>,<span style=color:#ae81ff>38</span>,<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>37</span>,<span style=color:#ae81ff>26</span>,<span style=color:#ae81ff>44</span>,<span style=color:#ae81ff>54</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>34</span>,<span style=color:#ae81ff>45</span>]
+</span></span><span style=display:flex><span>c <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> len(your_input) <span style=color:#f92672>!=</span> <span style=color:#ae81ff>16</span> <span style=color:#f92672>or</span> <span style=color:#e6db74>&#34;Xor&#34;</span> <span style=color:#f92672>not</span> <span style=color:#f92672>in</span> your_input:
+</span></span><span style=display:flex><span>    exit(<span style=color:#e6db74>&#34;Wrong Input&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> your_input:
+</span></span><span style=display:flex><span>    check <span style=color:#f92672>=</span> ord(i) <span style=color:#f92672>^</span> ord(your_input[<span style=color:#ae81ff>13</span>])
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(check <span style=color:#f92672>==</span> arr[c]):
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;Good Job!&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>        exit(<span style=color:#e6db74>&#34;Wrong Answer&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    c <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><p>Solution:
+The input is checked whether its length is 16 characters and that it contains the string <code>Xor</code>. Each character in the input is then xor&rsquo;ed with the 14th character (index 13) and is matched against each element in <code>arr</code>.
+Since we have the result of the xor operations, we can reverse the operation and get the flag, we just need to xor the elements in the <code>arr</code> array and check for the presence of &ldquo;Xor&rdquo; in the resulting string.
+The following script iterate in the range between 0 and 255 (ASCII table + extended codes) and checks for &ldquo;Xor&rdquo; in the resulting string to get the flag.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>your_input <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>arr <span style=color:#f92672>=</span> [<span style=color:#ae81ff>23</span>,<span style=color:#ae81ff>49</span>,<span style=color:#ae81ff>58</span>,<span style=color:#ae81ff>27</span>,<span style=color:#ae81ff>44</span>,<span style=color:#ae81ff>49</span>,<span style=color:#ae81ff>14</span>,<span style=color:#ae81ff>38</span>,<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>37</span>,<span style=color:#ae81ff>26</span>,<span style=color:#ae81ff>44</span>,<span style=color:#ae81ff>54</span>,<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>34</span>,<span style=color:#ae81ff>45</span>]
+</span></span><span style=display:flex><span>c <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># X = 88</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># o = 111</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># r = 114</span>
+</span></span><span style=display:flex><span>test <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>255</span>):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(len(arr)):
+</span></span><span style=display:flex><span>        test <span style=color:#f92672>+=</span> (chr(i <span style=color:#f92672>^</span> arr[j]))
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#e6db74>&#34;Xor&#34;</span> <span style=color:#f92672>in</span> test:
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Correct result is: </span><span style=color:#e6db74>{</span>test<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>    test <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> len(your_input) <span style=color:#f92672>!=</span> <span style=color:#ae81ff>16</span> <span style=color:#f92672>or</span> <span style=color:#e6db74>&#34;Xor&#34;</span> <span style=color:#f92672>not</span> <span style=color:#f92672>in</span> your_input:
+</span></span><span style=display:flex><span>    exit(<span style=color:#e6db74>&#34;Wrong Input&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> your_input:
+</span></span><span style=display:flex><span>    check <span style=color:#f92672>=</span> ord(i) <span style=color:#f92672>^</span> ord(your_input[<span style=color:#ae81ff>13</span>])
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(check <span style=color:#f92672>==</span> arr[c]):
+</span></span><span style=display:flex><span>        print(<span style=color:#e6db74>&#34;Good Job!&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>        exit(<span style=color:#e6db74>&#34;Wrong Answer&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    c <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><h1 id=mom-and-dad>&ldquo;Mom and Dad&rdquo;</h1><p>Challenge code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#66d9ef>char</span> your_input[<span style=color:#ae81ff>9</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> j, i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>char</span> Baby[<span style=color:#ae81ff>9</span>], DAD[] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;zlBnSaoO24GeliI&#34;</span>, MOM[] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;dYbWqlL8wsSk5jfduU8&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>strlen</span>(your_input) <span style=color:#f92672>!=</span> <span style=color:#ae81ff>9</span> <span style=color:#f92672>||</span> your_input[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>!=</span> DAD[<span style=color:#ae81ff>4</span>])
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Wrong Input&#34;</span>);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>exit</span>(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (j <span style=color:#f92672>=</span> <span style=color:#ae81ff>8</span>; j <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>0</span>; j<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    Baby[i] <span style=color:#f92672>=</span> your_input[j];
+</span></span><span style=display:flex><span>    i<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Baby[j] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;\0&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> ((Baby[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> MOM[<span style=color:#ae81ff>9</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>7</span>] <span style=color:#f92672>==</span> DAD[<span style=color:#ae81ff>3</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> MOM[<span style=color:#ae81ff>5</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>6</span>] <span style=color:#f92672>==</span> DAD[<span style=color:#ae81ff>6</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>==</span> DAD[<span style=color:#ae81ff>1</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>5</span>] <span style=color:#f92672>==</span> MOM[<span style=color:#ae81ff>8</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>==</span> DAD[<span style=color:#ae81ff>5</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>4</span>] <span style=color:#f92672>==</span> MOM[<span style=color:#ae81ff>2</span>]))
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Good Job!&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Wrong Answer&#34;</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Solution:
+The challenge checks if the length of the input is 9 characters and if the first character is equal to the fith char in the DAD[] array - <code>DAD[4]</code> (it being &ldquo;S&rdquo;).
+To get the rest of the flag we can modify to assign (based on the other checks) to an empty char array, compile the program and run. With some help from python to reverse the string.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>char</span> your_input[<span style=color:#ae81ff>9</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Snowballs&#34;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// char flag[9];
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> j, i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>char</span> Baby[<span style=color:#ae81ff>9</span>], DAD[] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;zlBnSaoO24GeliI&#34;</span>, MOM[] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;dYbWqlL8wsSk5jfduU8&#34;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;%d</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, <span style=color:#a6e22e>strlen</span>(your_input));
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>strlen</span>(your_input) <span style=color:#f92672>!=</span> <span style=color:#ae81ff>9</span> <span style=color:#f92672>||</span> your_input[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>!=</span> DAD[<span style=color:#ae81ff>4</span>])
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Wrong Input&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>exit</span>(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (j <span style=color:#f92672>=</span> <span style=color:#ae81ff>8</span>; j <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>0</span>; j<span style=color:#f92672>--</span>)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        Baby[i] <span style=color:#f92672>=</span> your_input[j];
+</span></span><span style=display:flex><span>        i<span style=color:#f92672>++</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;%s</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, Baby);
+</span></span><span style=display:flex><span>    Baby[j] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;\0&#39;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> ((Baby[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> MOM[<span style=color:#ae81ff>9</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>7</span>] <span style=color:#f92672>==</span> DAD[<span style=color:#ae81ff>3</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> MOM[<span style=color:#ae81ff>5</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>6</span>] <span style=color:#f92672>==</span> DAD[<span style=color:#ae81ff>6</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>==</span> DAD[<span style=color:#ae81ff>1</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>5</span>] <span style=color:#f92672>==</span> MOM[<span style=color:#ae81ff>8</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>==</span> DAD[<span style=color:#ae81ff>5</span>]) <span style=color:#f92672>&amp;&amp;</span> (Baby[<span style=color:#ae81ff>4</span>] <span style=color:#f92672>==</span> MOM[<span style=color:#ae81ff>2</span>]))
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>            <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Good Job!&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Wrong Answer&#34;</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// flag[0] = MOM[9]; 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// flag[1] = MOM[5]; 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// flag[2] = DAD[1]; 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// flag[3] = DAD[5]; 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// flag[4] = MOM[2]; 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// flag[5] = MOM[8]; 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// flag[6] = DAD[6]; 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// flag[7] = DAD[3];
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// printf(&#34;\n%s\n&#34;, flag);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// Results - sllabwon (reverse in python [::-1] give nowballs)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// First letter should be - S
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// 
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span></code></pre></div><h1 id=find-my-secret>&ldquo;Find my secret&rdquo;</h1><p>Challenge code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> base64
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>your_input <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>decode</span>(x):
+</span></span><span style=display:flex><span>    decoded <span style=color:#f92672>=</span> base64<span style=color:#f92672>.</span>b64decode(x)
+</span></span><span style=display:flex><span>    decoded <span style=color:#f92672>=</span> decoded<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#34;utf-8&#34;</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    password <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> c <span style=color:#f92672>in</span> decoded:
+</span></span><span style=display:flex><span>        password <span style=color:#f92672>+=</span> chr(ord(c) <span style=color:#f92672>^</span> <span style=color:#ae81ff>0x55</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> password
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>if</span> decode(your_input) <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;mysecret&#34;</span>:
+</span></span><span style=display:flex><span>       print(<span style=color:#e6db74>&#34;Good Job!&#34;</span>)
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>      print(<span style=color:#e6db74>&#34;Wrong password&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>except</span>:
+</span></span><span style=display:flex><span>   print(<span style=color:#e6db74>&#34;Please enter correct Base64 data&#34;</span>)
+</span></span></code></pre></div><p>Solution:
+To satisfy the requirements of the challenge we need to supply a base64 encoded input, each character of which will be xor&rsquo;ed with 0x55, the result should match the &ldquo;mysecret&rdquo; string.
+We can modify the code, buy adding a flag() function that imitates the decode() function, pass it the &ldquo;mysecret&rdquo; string and perform the same operations.
+The script below prints the flag.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> base64
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>your_input <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>decode</span>(x):
+</span></span><span style=display:flex><span>    decoded <span style=color:#f92672>=</span> base64<span style=color:#f92672>.</span>b64decode(x)
+</span></span><span style=display:flex><span>    decoded <span style=color:#f92672>=</span> decoded<span style=color:#f92672>.</span>decode(<span style=color:#e6db74>&#34;utf-8&#34;</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    password <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> c <span style=color:#f92672>in</span> decoded:
+</span></span><span style=display:flex><span>        password <span style=color:#f92672>+=</span> chr(ord(c) <span style=color:#f92672>^</span> <span style=color:#ae81ff>0x55</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> password
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>flag</span>(x):
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    password <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> c <span style=color:#f92672>in</span> x:
+</span></span><span style=display:flex><span>        password <span style=color:#f92672>+=</span> chr(ord(c) <span style=color:#f92672>^</span> <span style=color:#ae81ff>0x55</span>)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    flag_bytes <span style=color:#f92672>=</span> password<span style=color:#f92672>.</span>encode(<span style=color:#e6db74>&#39;utf-8&#39;</span>)
+</span></span><span style=display:flex><span>    flag <span style=color:#f92672>=</span> base64<span style=color:#f92672>.</span>b64encode(flag_bytes)
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Flag: </span><span style=color:#e6db74>{</span>flag<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>try</span>:
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>if</span> decode(your_input) <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;mysecret&#34;</span>:
+</span></span><span style=display:flex><span>       print(<span style=color:#e6db74>&#34;Good Job!&#34;</span>)
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>      print(<span style=color:#e6db74>&#34;Wrong password&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>except</span>:
+</span></span><span style=display:flex><span>   print(<span style=color:#e6db74>&#34;Please enter correct Base64 data&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>flag(<span style=color:#e6db74>&#34;mysecret&#34;</span>)
+</span></span></code></pre></div><h1 id=vault1>&ldquo;Vault1&rdquo;</h1><p>Challenge code:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span>
+</span></span><span style=display:flex><span>                                
+</span></span><span style=display:flex><span><span style=color:#75715e>//This Challenge was taken from picoCTF
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#f92672>import</span> java.util.*<span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>VaultDoor1</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span><span style=color:#f92672>(</span>String args<span style=color:#f92672>[])</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        VaultDoor1 vaultDoor <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> VaultDoor1<span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>        Scanner scanner <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Scanner<span style=color:#f92672>(</span>System<span style=color:#f92672>.</span><span style=color:#a6e22e>in</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>        System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>print</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Enter vault password: &#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>	String userInput <span style=color:#f92672>=</span> scanner<span style=color:#f92672>.</span><span style=color:#a6e22e>next</span><span style=color:#f92672>();</span>
+</span></span><span style=display:flex><span>	String input <span style=color:#f92672>=</span> userInput<span style=color:#f92672>.</span><span style=color:#a6e22e>substring</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;picoCTF{&#34;</span><span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>(),</span>userInput<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>()-</span>1<span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>vaultDoor<span style=color:#f92672>.</span><span style=color:#a6e22e>checkPassword</span><span style=color:#f92672>(</span>input<span style=color:#f92672>))</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>	    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Access granted.&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>	<span style=color:#f92672>}</span> <span style=color:#66d9ef>else</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>	    System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;Access denied!&#34;</span><span style=color:#f92672>);</span>
+</span></span><span style=display:flex><span>	<span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// I came up with a more secure way to check the password without putting
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// the password itself in the source code. I think this is going to be
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// UNHACKABLE!! I hope Dr. Evil agrees...
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// -Minion #8728
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>boolean</span> <span style=color:#a6e22e>checkPassword</span><span style=color:#f92672>(</span>String password<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> password<span style=color:#f92672>.</span><span style=color:#a6e22e>length</span><span style=color:#f92672>()</span> <span style=color:#f92672>==</span> 32 <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>0<span style=color:#f92672>)</span>  <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;d&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>29<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;a&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>4<span style=color:#f92672>)</span>  <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;r&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>2<span style=color:#f92672>)</span>  <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;5&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>23<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;r&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>3<span style=color:#f92672>)</span>  <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;c&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>17<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;4&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>1<span style=color:#f92672>)</span>  <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;3&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>7<span style=color:#f92672>)</span>  <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;b&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>10<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;_&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>5<span style=color:#f92672>)</span>  <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;4&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>9<span style=color:#f92672>)</span>  <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;3&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>11<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;t&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>15<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;c&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>8<span style=color:#f92672>)</span>  <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;l&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>12<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;H&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>20<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;c&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>14<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;_&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>6<span style=color:#f92672>)</span>  <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;m&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>24<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;5&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>18<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;r&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>13<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;3&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>19<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;4&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>21<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;T&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>16<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;H&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>27<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;6&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>30<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;f&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>25<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;_&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>22<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;3&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>28<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;d&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>26<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;f&#39;</span> <span style=color:#f92672>&amp;&amp;</span>
+</span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>31<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;4&#39;</span><span style=color:#f92672>;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span></code></pre></div><p>Solution:
+This time in java, the challenge will check for specific character in different (unlike &ldquo;XOR magic&rdquo; challenge this is not done sequentially).
+We can use the method mentioned previously, by create an array and filling it with <code>None</code>s and performing the corresponding substitutions, then printing the flag.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>password <span style=color:#f92672>=</span> [<span style=color:#66d9ef>None</span>] <span style=color:#f92672>*</span> <span style=color:#ae81ff>32</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;d&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>29</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;a&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>4</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;r&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;5&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>23</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;r&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;c&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>17</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;4&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;3&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>7</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;b&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>10</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;_&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>5</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;4&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>9</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;3&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>11</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;t&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>15</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;c&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>8</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;l&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>12</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;H&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>20</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;c&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>14</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;_&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>6</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;m&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>24</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;5&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>18</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;r&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>13</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;3&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>19</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;4&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>21</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;T&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>16</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;H&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>27</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;6&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>30</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;f&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>25</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;_&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>22</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;3&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>28</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;d&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>26</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;f&#39;</span>
+</span></span><span style=display:flex><span>password[<span style=color:#ae81ff>31</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;4&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(<span style=color:#e6db74>&#34;picoCTF{{</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>}}&#34;</span><span style=color:#f92672>.</span>format(<span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>join(password)))
+</span></span></code></pre></div></div><div class=post-footer></div></article></main></body></html>
