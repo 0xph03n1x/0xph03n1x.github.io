@@ -4,7 +4,8 @@ date: "2023-08-30"
 draft: false
 ---
 
-Huge thanks to the creator of [trycrack.me](https://trycrack.me) - [T A J R](https://twitter.com/xtajr) for providing an interesting platform for whitebox and blackbox crackmes.
+Huge thanks to the creator of [trycrack.me](https://trycrack.me) - [T A J R](https://twitter.com/xtajr) for providing an interesting platform for whitebox and blackbox crackmes.  
+Code for all the completed challenged can be downloaded [here](https://github.com/0xph03n1x/trycrackme).
 
 # "Start here"
 
