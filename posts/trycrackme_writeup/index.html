@@ -64,8 +64,7 @@ Following script will provide the solution.</p><div class=highlight><pre tabinde
 </span></span><span style=display:flex><span>    Console.WriteLine(<span style=color:#e6db74>&#34;Good job!&#34;</span>);
 </span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>
 </span></span><span style=display:flex><span>    Console.WriteLine(<span style=color:#e6db74>&#34;Wrong Answer!&#34;</span>)
-</span></span></code></pre></div><p>Soluiton:
-Another encoded flag, this time the encoded string, for every character in the input, <code>55</code> is being removed before the final check.
+</span></span></code></pre></div><p>Soluiton:</p><p>Another encoded flag, this time the encoded string, for every character in the input, <code>55</code> is being removed before the final check.
 Given the final result, we can reverse the operation, adding <code>55</code> to each number and get the correct input.
 The following script gets us the flag.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>flag <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;144260662546426066&#34;</span>
 </span></span><span style=display:flex><span>solved <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
@@ -94,8 +93,7 @@ To get the flag here, since the <code>str_replace</code> function is only called
 </span></span><span style=display:flex><span>  print(<span style=color:#e6db74>&#34;Good Job!&#34;</span>)
 </span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>:
 </span></span><span style=display:flex><span>  print(<span style=color:#e6db74>&#34;Wrong password&#34;</span>)
-</span></span></code></pre></div><p>Solution:
-The flag is a string of hex numbers that gets converted to a <code>bytes</code> object, that is then xor&rsquo;ed with the supplied input. The resulting string is being checked for the existence of <code>TCM{X0r_1s</code> string inside of the results.
+</span></span></code></pre></div><p>Solution:</p><p>The flag is a string of hex numbers that gets converted to a <code>bytes</code> object, that is then xor&rsquo;ed with the supplied input. The resulting string is being checked for the existence of <code>TCM{X0r_1s</code> string inside of the results.
 While there might be a more elegant solution I decided to create a small bruteforce setup (since we have a hint that the input is 4 characters) using the <code>pwn</code> and <code>itertools</code> python modules.
 The following code will iterate over all possible 4-character long combinations, upon failure of the <code>if</code> check, will continue and if the correct input is found it will be printed along with the resulting flag.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> pwn
 </span></span><span style=display:flex><span><span style=color:#f92672>import</span> itertools
@@ -135,8 +133,7 @@ The following code will iterate over all possible 4-character long combinations,
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Good Job!&#34;</span>);
-</span></span></code></pre></div><p>Solution:
-The challenge uses a clear-text flag and iterates the characters in the input alongside the flag to check if the characters at the same position are equal to the character of <code>correct</code> minus one, i.e. the previous letter in the alphabet. For <code>c</code> that would be the letter <code>b</code> and so on.
+</span></span></code></pre></div><p>Solution:</p><p>The challenge uses a clear-text flag and iterates the characters in the input alongside the flag to check if the characters at the same position are equal to the character of <code>correct</code> minus one, i.e. the previous letter in the alphabet. For <code>c</code> that would be the letter <code>b</code> and so on.
 Since C can treat a <code>char</code> as an integer a simple <code>-1</code> reverts to the character to the previous one.
 The following code provide the complete solution, but this could also be done by hand.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>flag <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;cr4ckme&#34;</span>
 </span></span><span style=display:flex><span>solution <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
@@ -210,8 +207,7 @@ The code below uses this method.</p><div class=highlight><pre tabindex=0 style=c
 </span></span><span style=display:flex><span>        exit(<span style=color:#e6db74>&#34;Wrong Answer&#34;</span>)
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    c <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
-</span></span></code></pre></div><p>Solution:
-The input is checked whether its length is 16 characters and that it contains the string <code>Xor</code>. Each character in the input is then xor&rsquo;ed with the 14th character (index 13) and is matched against each element in <code>arr</code>.
+</span></span></code></pre></div><p>Solution:</p><p>The input is checked whether its length is 16 characters and that it contains the string <code>Xor</code>. Each character in the input is then xor&rsquo;ed with the 14th character (index 13) and is matched against each element in <code>arr</code>.
 Since we have the result of the xor operations, we can reverse the operation and get the flag, we just need to xor the elements in the <code>arr</code> array and check for the presence of &ldquo;Xor&rdquo; in the resulting string.
 The following script iterate in the range between 0 and 255 (ASCII table + extended codes) and checks for &ldquo;Xor&rdquo; in the resulting string to get the flag.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>your_input <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
 </span></span><span style=display:flex><span>
@@ -267,8 +263,7 @@ The following script iterate in the range between 0 and 255 (ASCII table + exten
 </span></span><span style=display:flex><span>{
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Wrong Answer&#34;</span>);
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>Solution:
-The challenge checks if the length of the input is 9 characters and if the first character is equal to the fith char in the DAD[] array - <code>DAD[4]</code> (it being &ldquo;S&rdquo;).
+</span></span></code></pre></div><p>Solution:</p><p>The challenge checks if the length of the input is 9 characters and if the first character is equal to the fith char in the DAD[] array - <code>DAD[4]</code> (it being &ldquo;S&rdquo;).
 To get the rest of the flag we can modify to assign (based on the other checks) to an empty char array, compile the program and run. With some help from python to reverse the string.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(){
@@ -334,8 +329,7 @@ To get the rest of the flag we can modify to assign (based on the other checks) 
 </span></span><span style=display:flex><span>      print(<span style=color:#e6db74>&#34;Wrong password&#34;</span>)
 </span></span><span style=display:flex><span><span style=color:#66d9ef>except</span>:
 </span></span><span style=display:flex><span>   print(<span style=color:#e6db74>&#34;Please enter correct Base64 data&#34;</span>)
-</span></span></code></pre></div><p>Solution:
-To satisfy the requirements of the challenge we need to supply a base64 encoded input, each character of which will be xor&rsquo;ed with 0x55, the result should match the &ldquo;mysecret&rdquo; string.
+</span></span></code></pre></div><p>Solution:</p><p>To satisfy the requirements of the challenge we need to supply a base64 encoded input, each character of which will be xor&rsquo;ed with 0x55, the result should match the &ldquo;mysecret&rdquo; string.
 We can modify the code, buy adding a flag() function that imitates the decode() function, pass it the &ldquo;mysecret&rdquo; string and perform the same operations.
 The script below prints the flag.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> base64
 </span></span><span style=display:flex><span>
@@ -431,8 +425,7 @@ The script below prints the flag.</p><div class=highlight><pre tabindex=0 style=
 </span></span><span style=display:flex><span>               password<span style=color:#f92672>.</span><span style=color:#a6e22e>charAt</span><span style=color:#f92672>(</span>31<span style=color:#f92672>)</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;4&#39;</span><span style=color:#f92672>;</span>
 </span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>}</span>
-</span></span></code></pre></div><p>Solution:
-This time in java, the challenge will check for specific character in different (unlike &ldquo;XOR magic&rdquo; challenge this is not done sequentially).
+</span></span></code></pre></div><p>Solution:</p><p>This time in java, the challenge will check for specific character in different (unlike &ldquo;XOR magic&rdquo; challenge this is not done sequentially).
 We can use the method mentioned previously, by create an array and filling it with <code>None</code>s and performing the corresponding substitutions, then printing the flag.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>password <span style=color:#f92672>=</span> [<span style=color:#66d9ef>None</span>] <span style=color:#f92672>*</span> <span style=color:#ae81ff>32</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>password[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;d&#39;</span>
