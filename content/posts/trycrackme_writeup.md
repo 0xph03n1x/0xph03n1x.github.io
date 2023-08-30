@@ -1,6 +1,6 @@
 ---
 title: "Writeups for the whitebox challenges on trycrack.me"
-date: "2023-08-30T18:56:21+01:00"
+date: "2023-08-30"
 draft: false
 ---
 
