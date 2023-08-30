@@ -20,7 +20,7 @@ else:
 	print("Wrong Password")
 ```
 
-Solution:
+Solution:  
 
 The goal here is for the `your_input` variable to match the string it's being compared to, which is in clear text and not obfuscated.
 Simply entering `Hello_World` will solve this challenge.
@@ -50,7 +50,7 @@ else:
     print("Wrong password")
 ```
 
-Solution:
+Solution:  
 
 This time the password is stored as a string that contains decimal number split by "," and then each number gets number converted from string to integer, and passed to the [chr()](https://docs.python.org/3/library/functions.html#chr) function.
 The [chr()](https://docs.python.org/3/library/functions.html#chr) function will convert the int to a character, which is stored in the `password` string, that our input will be compared to.
@@ -95,7 +95,8 @@ else
     Console.WriteLine("Wrong Answer!")
 ```
 
-Soluiton:
+Soluiton:  
+
 Another encoded flag, this time the encoded string, for every character in the input, `55` is being removed before the final check.
 Given the final result, we can reverse the operation, adding `55` to each number and get the correct input.
 The following script gets us the flag.
@@ -126,7 +127,7 @@ else
   echo ("Wrong Answer!");
 ```
 
-Solution:
+Solution:  
 
 The challenge code looks for the `op` string in the user input and replaces it with nothing. It then checks if the resulting string matches `reprop`.
 To get the flag here, since the `str_replace` function is only called once, we need to modify the input to include `op` between the `o` and `p`, which gives the solve.
@@ -148,7 +149,8 @@ else:
   print("Wrong password")
 ```
 
-Solution:
+Solution:  
+
 The flag is a string of hex numbers that gets converted to a `bytes` object, that is then xor'ed with the supplied input. The resulting string is being checked for the existence of `TCM{X0r_1s` string inside of the results.
 While there might be a more elegant solution I decided to create a small bruteforce setup (since we have a hint that the input is 4 characters) using the `pwn` and `itertools` python modules.
 The following code will iterate over all possible 4-character long combinations, upon failure of the `if` check, will continue and if the correct input is found it will be printed along with the resulting flag.
@@ -201,7 +203,8 @@ for (int i = 0 ; i < strlen(correct) ; i++)
 printf("Good Job!");
 ```
 
-Solution:
+Solution:  
+
 The challenge uses a clear-text flag and iterates the characters in the input alongside the flag to check if the characters at the same position are equal to the character of `correct` minus one, i.e. the previous letter in the alphabet. For `c` that would be the letter `b` and so on.
 Since C can treat a `char` as an integer a simple `-1` reverts to the character to the previous one.
 The following code provide the complete solution, but this could also be done by hand.
@@ -241,7 +244,7 @@ else:
 	print("Wrong Password")
 ```
 
-Solution:
+Solution:  
 
 The input get converted from utf-8 encoded string -> bytes -> list. Each element of the list has a seemingly random number added and is compared to a specific number.
 Using some multi-line editing in your editor of choice you can extract the final and added value to get the original value.
@@ -303,7 +306,8 @@ for i in your_input:
     c += 1
 ```
 
-Solution:
+Solution:  
+
 The input is checked whether its length is 16 characters and that it contains the string `Xor`. Each character in the input is then xor'ed with the 14th character (index 13) and is matched against each element in `arr`.
 Since we have the result of the xor operations, we can reverse the operation and get the flag, we just need to xor the elements in the `arr` array and check for the presence of "Xor" in the resulting string.
 The following script iterate in the range between 0 and 255 (ASCII table + extended codes) and checks for "Xor" in the resulting string to get the flag.
@@ -372,7 +376,8 @@ else
 }
 ```
 
-Solution:
+Solution:  
+
 The challenge checks if the length of the input is 9 characters and if the first character is equal to the fith char in the DAD[] array - `DAD[4]` (it being "S").
 To get the rest of the flag we can modify to assign (based on the other checks) to an empty char array, compile the program and run. With some help from python to reverse the string.
 
@@ -451,7 +456,8 @@ except:
    print("Please enter correct Base64 data")
 ```
 
-Solution:
+Solution:  
+
 To satisfy the requirements of the challenge we need to supply a base64 encoded input, each character of which will be xor'ed with 0x55, the result should match the "mysecret" string.
 We can modify the code, buy adding a flag() function that imitates the decode() function, pass it the "mysecret" string and perform the same operations.
 The script below prints the flag.
@@ -561,7 +567,8 @@ class VaultDoor1 {
 }
 ```
 
-Solution:
+Solution:  
+
 This time in java, the challenge will check for specific character in different (unlike "XOR magic" challenge this is not done sequentially).
 We can use the method mentioned previously, by create an array and filling it with `None`s and performing the corresponding substitutions, then printing the flag.
 
