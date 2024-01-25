@@ -73,14 +73,18 @@ Got my passing mark at last! Would definitely recommend the exam for anyone inte
 I'm going over the course right now and so far like it quite a lot. It's clear the instructor knew what they were doing and they go into great detail with their explanations.
 
 ## Certification
-I'll likely attempt the exam in the next month or two and will update the article once done.
+Unfortunately due to my personal situation I was unable to sit the exam before it was retired by INE :(.
 
 
 # eWPT
+(pending results of exam)
 
 ## Course
+Went through most of the course material and while it does cover quite some basics, it is quite outdated. The course goes over the OWASP 2013... (current year 2023/4).
+INE apparently made an updated course and released a new version of the exam, but it I won't be renewing my INE subscription or purchasing the same certification, just an updated version, any time soon.
 
 ## Certification
+The certication was enjoyable, although again, it covers the basics and it's still quite outdated. Personally happy to complete this exam, since web apps are not really my thing.
 
 
 # Conclusion
