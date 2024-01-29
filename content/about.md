@@ -29,6 +29,7 @@ Other hobbies include playing video games like Path of Exile and World of Warcra
 
 # ~$ certs
 
+**eLearnSecurity Web Application Penetrattion Tester (eWPT)**  
 **eLearnSecurity Certified Malware Analysis Professional (eCMAP)**  
 **eLearnSecurity Certified Professional Penetration Tester (eCPTTv2)**  
 **eLearnSecurity Certified Threat Hunting Professional (eCTHPv2)**  

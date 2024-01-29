@@ -77,16 +77,20 @@ Unfortunately due to my personal situation I was unable to sit the exam before i
 
 
 # eWPT
-(pending results of exam)
+
+![eCMAP](/img/ine_certs/ewpt_cert.png)
 
 ## Course
 Went through most of the course material and while it does cover quite some basics, it is quite outdated. The course goes over the OWASP 2013... (current year 2023/4).
 INE apparently made an updated course and released a new version of the exam, but it I won't be renewing my INE subscription or purchasing the same certification, just an updated version, any time soon.
 
 ## Certification
-The certication was enjoyable, although again, it covers the basics and it's still quite outdated. Personally happy to complete this exam, since web apps are not really my thing.
+The certication was enjoyable, although again, while it covers the basics, it's still quite outdated. Personally happy to complete this exam, since web apps are not really my thing.
 
 
 # Conclusion
 
-Under construction :)
+So far so good. I've definetely enjoyed my eLearnSecurit/INE journey. My one regret is not being able to do eCRE.
+Would I recommend for someone new getting into Cybersecurity to go for any of these certs? - not really. Unfortunately the content is getting very outdated and for the most part it's not maintained.
+The labs are okay, but you can find better on other platforms. After retiring the more technical exams (like eCRE, eCMAP) the rest of the content doesn't give you all that much bang for your buck.
+For now this concludes my journey with eLearnSecurity/INE, as I'll be moving on to get other certificaitons like the CRTP/E and CRTO, as well as some MCQ ones like Crowdstrike's.
