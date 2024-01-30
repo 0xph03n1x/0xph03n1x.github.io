@@ -14,11 +14,14 @@ theme = "m10c"
         icon = "github"
         name = "Github"
         url = "https://github.com/0xph03n1x"
-    
     [[params.social]]
         icon = "twitter"
         name = "Twitter"
         url = "https://twitter.com/pho3n1x86"
+    [[params.social]]
+        icon = "mastodon"
+        name = "Mastodon"
+        url = "https://infosec.exchange/@0xph03n1x"
     [[params.social]]
         icon = "box"
         name = "Hack the Box"
