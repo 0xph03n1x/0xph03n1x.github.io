@@ -8,7 +8,7 @@ theme = "m10c"
     description = "All things tech and security."
     favicon = "/favicon.ico"
     avatar = "/img/skull_cap.png"
-    menu_item_separator = " - "
+    menu_item_separator = " | "
     
     [[params.social]]
         icon = "github"
@@ -32,10 +32,20 @@ theme = "m10c"
     [[menu.main]]
         identifier = "blog"
         name = "Blog"
-        url = "/"
+        url = "/posts/"
         weight = 1
+    [[menu.main]]
+        identifier = "malware analysis"
+        name = "Malware Analysis"
+        url = "/malware_analysis/"
+        weight = 2
+    [[menu.main]]
+        identifier = "security research"
+        name = "Security Research"
+        url = "/security_research/"
+        weight = 3
     [[menu.main]]
         identifier = "About"
         name = "About"
         url = "/about/"
-        weight = 2
+        weight = 4

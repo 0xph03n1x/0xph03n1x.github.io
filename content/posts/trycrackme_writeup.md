@@ -2,6 +2,7 @@
 title: "Writeups for the whitebox challenges on trycrack.me"
 date: "2023-08-30"
 draft: false
+identifier: "blog"
 ---
 
 Huge thanks to the creator of [trycrack.me](https://trycrack.me) - [T A J R](https://twitter.com/xtajr) for providing an interesting platform for whitebox and blackbox crackmes.  
