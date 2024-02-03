@@ -5,7 +5,7 @@ theme = "m10c"
 
 [permalinks]
   [permalinks.page]
-    '/' = '/posts/'
+    '/' = 'posts/'
 [params]
     author = "0xph03n1x"
     description = "All things tech and security."
