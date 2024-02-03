@@ -35,7 +35,7 @@ theme = "m10c"
     [[menu.main]]
         identifier = "blog"
         name = "Blog"
-        url = "/posts/"
+        url = "/"
         weight = 1
     [[menu.main]]
         identifier = "malware analysis"
