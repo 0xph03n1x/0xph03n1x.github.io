@@ -3,9 +3,6 @@ languageCode = 'en-us'
 title = "0xph03n1x's Blog"
 theme = "m10c"
 
-[permalinks]
-  [permalinks.page]
-    '/' = '/posts/'
 [params]
     author = "0xph03n1x"
     description = "All things tech and security."
@@ -53,5 +50,5 @@ theme = "m10c"
     [[menu.main]]
         identifier = "About"
         name = "About"
-        url = "/about/"
+        url = "/about/about"
         weight = 4
