@@ -50,5 +50,5 @@ theme = "m10c"
     [[menu.main]]
         identifier = "About"
         name = "About"
-        url = "/about/about"
+        url = "/about/"
         weight = 4
