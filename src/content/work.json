@@ -1,0 +1,51 @@
+[
+  {
+  "id": 1,
+  "duration": "2016-2019",
+  "company": "Sky Broadband",
+  "title": "Network Support Engineer",
+  "description": ""
+  },
+  {
+  "id": 2,
+  "duration": "2020-2021",
+  "company": "DXC Technology",
+  "title": "Network Security Engineer",
+  "description": ""
+  },
+  {
+  "id": 3,
+  "duration": "2021-2021",
+  "company": "Zscaler",
+  "title": "Network and Security Engineer II",
+  "description": ""
+  },
+  {
+  "id": 4,
+  "duration": "2021-2022",
+  "company": "Crypto.com",
+  "title": "Security Operations Analyst",
+  "description": ""
+  },
+  {
+  "id": 5,
+  "duration": "2022-2023",
+  "company": "EUROPOL (freelance, on-site)",
+  "title": "SOC Analyst",
+  "description": ""
+  },
+  {
+  "id": 6,
+  "duration": "2024 - 2024",
+  "company": "FNZ Group",
+  "title": "Detection Engineer & Senior SOC Analyst",
+  "description": ""
+  },
+  {
+    "id": 7,
+    "duration": "2024 - present",
+    "company": "Freelance (full-time remote)",
+    "title": "Threat Hunter & Detection Engineer",
+    "description": ""
+  }
+]

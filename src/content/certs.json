@@ -1,0 +1,69 @@
+[
+    {
+        "id": 2,
+        "provider": "CyberWarfare Labs",
+        "certifications": [
+            "Certified Process Injection Analyst (CPIA)",
+            "Certified Red Team – CredOps Infiltrator (CRT-COI)",
+            "Multi-Cloud Red Teaming Analyst (MCRTA)"
+        ]
+    },
+    {
+        "id": 3,
+        "provider": "eLearnSecurity",
+        "certifications": [
+            "eLearnSecurity Web Application Penetrattion Tester (eWPT)",
+            "eLearnSecurity Certified Malware Analysis Professional (eCMAP)",
+            "eLearnSecurity Certified Professional Penetration Tester (eCPTTv2)",
+            "eLearnSecurity Certified Threat Hunting Professional (eCTHPv2)",
+            "eLearnSecurity Juniour Penetration Tester (eJPT)"
+        ]
+    },
+    {
+        "id": 4,
+        "provider": "AWS",
+        "certifications": [
+            "AWS Certified Solutions Architect - Associate (SAA-C03)",
+            "AWS Cloud Practitioner (CLF-C01)"
+        ]
+    },
+    {
+        "id": 5,
+        "provider": "CompTIA",
+        "certifications": [
+            "CompTIA Security+ (SY0-601)"
+        ]
+    },
+    {
+        "id": 6,
+        "provider": "Palo Alto Networks",
+        "certifications": [
+            "Palo Alto Networks Certified Security Administrator (PCNSA)"
+        ]
+    },
+    {
+        "id": 7,
+        "provider": "Other",
+        "certifications": [
+            "RangeForce - Secure Coding",
+            "RangeForce - Malware Analysis Elite",
+            "RangeForce - Reverse Engineering Elite",
+            "RangeForce - Regular Expressions Elite",
+            "RangeForce - SOC Analyst 2",
+            "RangeForce - SOC Analyst 1 Elite",
+            "OST2 - Architecture 1001: x86-64 Assembly",
+            "OST2 - Debuggers 1011: Introductory WinDbg",
+            "OST2 - Debuggers 1012: Introductory GDB",
+            "OST2 - Debuggers 1101: Introductory IDA",
+            "OST2 - Debuggers 1102: Introductory Ghidra"
+        ]
+    },
+    {
+        "id": 8,
+        "provider": "Zscaler",
+        "certifications": [
+            "ZCCA-IA",
+            "ZCCA-PA"
+        ]
+    }
+]

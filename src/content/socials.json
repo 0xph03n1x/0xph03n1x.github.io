@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "icon": {
+      "type": "lucide",
+      "name": "github"
+    },
+    "text": "GitHub",
+    "link": "https://github.com/0xph03n1x"
+  },
+  {
+    "id": 2,
+    "icon": {
+      "type": "lucide",
+      "name": "linkedin"
+    },
+    "text": "LinkedIn",
+    "link": "https://www.linkedin.com/in/mihail-lazarov-a31943198/"
+  },
+  {
+    "id": 3,
+    "icon": {
+      "type": "lucide",
+      "name": "mail"
+    },
+    "text": "lazarov.mihail@protonmail.com",
+    "link": "mailto:lazarov.mihail@protonmail.com"
+  }
+]
