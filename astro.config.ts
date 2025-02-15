@@ -47,7 +47,7 @@ export default defineConfig({
       // }
     })
   ],
-  adapter: node({
-    mode: 'standalone'
-  })
+  // adapter: node({
+  //   mode: 'standalone'
+  // })
 });
