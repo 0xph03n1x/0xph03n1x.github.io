@@ -23,7 +23,7 @@ export default defineConfig({
       openGraph: {
         home: {
           title: 'Mihail Lazarov',
-          description: 'Mihil Lazarov\'s personal blog.'
+          description: 'Mihail Lazarov\'s personal blog.'
         },
         blog: {
           title: 'Blog',
