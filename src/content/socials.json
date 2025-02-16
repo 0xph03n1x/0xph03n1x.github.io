@@ -35,4 +35,13 @@
     "text": "Twitter",
     "link": "https://x.com/pho3n1x86"
   }
+  {
+    "id": 5,
+    "icon": {
+      "type": "lucide",
+      "name": "link"
+    },
+    "text": "Mastodon (infosec.exchange)",
+    "link": "https://infosec.exchange/@0xph03n1x"
+  }
 ]
