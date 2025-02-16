@@ -25,5 +25,14 @@
     },
     "text": "lazarov.mihail@protonmail.com",
     "link": "mailto:lazarov.mihail@protonmail.com"
+  },
+  {
+    "id": 4,
+    "icon": {
+      "type": "lucide",
+      "name": "twitter"
+    },
+    "text": "Twitter",
+    "link": "https://x.com/pho3n1x86"
   }
 ]
