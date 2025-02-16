@@ -120,16 +120,17 @@ const { Content: About } = await render(about!);
 		</Card>
 		<Card>
 			<div class="header-container">
-				<Icon type='lucide' name="book-check" width={24} height={24} class='glow-icon' />
+				<Icon type='lucide' name="graduation-cap" width={24} height={24} class='glow-icon' />
 				<h2>Certifications</h2>
 				</div>
 			<div class="certifications-container">
 				{certificationsCollection.map((entry) => (
 					<div class="certifications-entry">
 						<h3 class="certifications-provider">{entry.data.provider}</h3>
-						{(entry.data.certifications).map((certName) => (
-							<ul><li>{certName}</li></ul>
+						<ul>{(entry.data.certifications).map((certName) => (
+							<li>{certName}</li>
 						))}
+						</ul>
 					</div>
 				))}
 			</div>
