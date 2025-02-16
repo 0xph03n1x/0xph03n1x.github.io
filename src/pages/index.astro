@@ -128,7 +128,7 @@ const { Content: About } = await render(about!);
 					<div class="certifications-entry">
 						<h3 class="certifications-provider">{entry.data.provider}</h3>
 						{(entry.data.certifications).map((certName) => (
-							<li>{certName}</li>
+							<ul><li>{certName}</li></ul>
 						))}
 					</div>
 				))}
